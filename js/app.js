@@ -28,50 +28,50 @@ function ready(fn) {
     }
  */
 window.ready(async function() {
-    let swRegistration = null;
-    const messaging = firebase.messaging();
-
-    const showPush = async (options) => swRegistration.showNotification("PWA Notification!", options);
-
-    const getFirebaseToken = async () => {
-        try {
-            const token = await messaging.getToken();
-            console.log('Firebase Token =>', token);
-            return token;
-        } catch (err) {
-            console.error('Failed to get Firebase token', err);
-        }
-    };
-
-    const requestFirebasePermission = async () => {
-        await messaging.requestPermission();
-        return getFirebaseToken();
-    };
-
-    messaging.onMessage(payload => {
-        const options = JSON.parse(payload.data.notification);
-        showPush(options);
-    });
-
-    const checkPermission = async () => {
-        try {
-            if (window.Notification && Notification.permission === "granted") {
-                return requestFirebasePermission();
-            }
-            else if (window.Notification && Notification.permission !== "denied") {
-                const status = await Notification.requestPermission();
-                console.log('Notification API status in Client => ', status);
-                if (status === "granted") {
-                    showPush({ title: 'Permission granted', body: 'Now you will receive news'});
-                } else {
-                    alert("You denied or dismissed permissions to notifications.");
-                }
-
-            }
-        } catch (err) {
-            console.error('Service Worker Error', error)
-        }
-    };
+    // let swRegistration = null;
+    // const messaging = firebase.messaging();
+    //
+    // const showPush = async (options) => swRegistration.showNotification("PWA Notification!", options);
+    //
+    // const getFirebaseToken = async () => {
+    //     try {
+    //         const token = await messaging.getToken();
+    //         console.log('Firebase Token =>', token);
+    //         return token;
+    //     } catch (err) {
+    //         console.error('Failed to get Firebase token', err);
+    //     }
+    // };
+    //
+    // const requestFirebasePermission = async () => {
+    //     await messaging.requestPermission();
+    //     return getFirebaseToken();
+    // };
+    //
+    // messaging.onMessage(payload => {
+    //     const options = JSON.parse(payload.data.notification);
+    //     showPush(options);
+    // });
+    //
+    // const checkPermission = async () => {
+    //     try {
+    //         if (window.Notification && Notification.permission === "granted") {
+    //             return requestFirebasePermission();
+    //         }
+    //         else if (window.Notification && Notification.permission !== "denied") {
+    //             const status = await Notification.requestPermission();
+    //             console.log('Notification API status in Client => ', status);
+    //             if (status === "granted") {
+    //                 showPush({ title: 'Permission granted', body: 'Now you will receive news'});
+    //             } else {
+    //                 alert("You denied or dismissed permissions to notifications.");
+    //             }
+    //
+    //         }
+    //     } catch (err) {
+    //         console.error('Service Worker Error', error)
+    //     }
+    // };
 
     const initApp = async () => {
         try {
@@ -80,7 +80,7 @@ window.ready(async function() {
                 const swReg = await navigator.serviceWorker.register('./service-worker.js');
                 console.log('Service Worker is registered', swReg);
                 swRegistration = swReg;
-                checkPermission();
+                // checkPermission();
             } else {
                 console.warn('Push messaging is not supported');
             }
