@@ -1,7 +1,7 @@
 {
   "name": "Mynotes",
   "short_name": "Notes",
-  "start_url": "/index.html",
+  "start_url": "/pwa-firebase/index.html",
   "display": "standalone",
   "background_color": "#607d8b",
   "orientation": "any",
