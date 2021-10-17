@@ -1,9 +1,9 @@
 let cacheName = 'notes-son.v.1.0.0';
 let filesToCache = [
-    '/curso-firebase/',
-    '/curso-firebase/index.html',
-    '/curso-firebase/css/app.css',
-    '/curso-firebase/js/app.js'
+    '/pwa-firebase/',
+    '/pwa-firebase/index.html',
+    '/pwa-firebase/css/app.css',
+    '/pwa-firebase/js/app.js'
 ];
 
 self.addEventListener('install', function (e) {
