@@ -1,7 +1,7 @@
 {
   "name": "Son PWA",
   "short_name": "SON",
-  "start_url": "./index.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#607d8b",
   "orientation": "any",

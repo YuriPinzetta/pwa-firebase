@@ -1,9 +1,9 @@
 var cacheName = 'son-pwa';
 var filesToCache = [
-  './',
-  './index.html',
-  './css/app.css',
-  './js/app.js'
+  '',
+  'index.html',
+  'css/app.css',
+  'js/app.js'
 ];
 
 /* Start the service worker and cache all of the app's content */
